@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhawani Hostel Billing</title>
 
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: #f4f4f4;
         }
 
@@ -20,12 +22,19 @@
 
         h1 {
             text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
         }
 
         input {
             width: 100%;
             margin: 5px 0 10px;
             padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button {
@@ -35,6 +44,7 @@
             color: white;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
         }
 
         button:hover {
@@ -45,50 +55,50 @@
             text-align: center;
             margin-top: 15px;
             color: green;
+            font-weight: bold;
         }
     </style>
-
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Hostel Billing</h1>
+<div class="container">
+    <h1>Bhawani Hostel Billing</h1>
 
-        <label>Student Name:</label>
-        <input type="text" id="name">
+    <label>Student Name:</label>
+    <input type="text" id="name" placeholder="Enter name">
 
-        <label>Room Number:</label>
-        <input type="text" id="room">
+    <label>Room Number:</label>
+    <input type="text" id="room" placeholder="Enter room number">
 
-        <h3>Charges</h3>
+    <h3>Charges</h3>
 
-        <label>Room Rent (₹):</label>
-        <input type="number" id="rent">
+    <label>Room Rent (₹):</label>
+    <input type="number" id="rent">
 
-        <label>Food Charges (₹):</label>
-        <input type="number" id="food">
+    <label>Food Charges (₹):</label>
+    <input type="number" id="food">
 
-        <label>Electricity (₹):</label>
-        <input type="number" id="electric">
+    <label>Electricity (₹):</label>
+    <input type="number" id="electric">
 
-        <button onclick="calculateBill()">Calculate Bill</button>
+    <button onclick="calculateBill()">Calculate Bill</button>
 
-        <h2 id="result"></h2>
-    </div>
+    <h2 id="result"></h2>
+</div>
 
-    <script>
-        function calculateBill() {
+<script>
+function calculateBill() {
+    let rent = parseInt(document.getElementById("rent").value) || 0;
+    let food = parseInt(document.getElementById("food").value) || 0;
+    let electric = parseInt(document.getElementById("electric").value) || 0;
 
-            let rent = parseInt(document.getElementById("rent").value) || 0;
-            let food = parseInt(document.getElementById("food").value) || 0;
-            let electric = parseInt(document.getElementById("electric").value) || 0;
+    let total = rent + food + electric;
 
-            let total = rent + food + electric;
-
-            document.getElementById("result").innerText =
-                "Total Bill: ₹ " + total;
-        }
-    </script>
+    document.getElementById("result").innerText =
+        "Total Bill: ₹ " + total;
+}
+</script>
 
 </body>
 </html>
