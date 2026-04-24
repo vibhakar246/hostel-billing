@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhawani Hostel Billing</title>
-<h2>Version 3</h2>
-    <h3 id="time"></h3>
-<h2>Version 4</h2>
-<script>
-document.getElementById("time").innerText =
-  "Last Updated: " + new Date().toLocaleString();
-</script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -22,8 +18,23 @@ document.getElementById("time").innerText =
             margin: 60px auto;
             background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .version {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            background: #28a745;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #time {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
         }
 
         h1 {
@@ -46,7 +57,7 @@ document.getElementById("time").innerText =
         button {
             width: 100%;
             padding: 10px;
-            background: #333;
+            background: #007bff;
             color: white;
             border: none;
             cursor: pointer;
@@ -54,7 +65,7 @@ document.getElementById("time").innerText =
         }
 
         button:hover {
-            background: #555;
+            background: #0056b3;
         }
 
         #result {
@@ -67,6 +78,9 @@ document.getElementById("time").innerText =
 </head>
 
 <body>
+
+<div class="version">Version 4 🚀</div>
+<h3 id="time"></h3>
 
 <div class="container">
     <h1>Bhawani Hostel Billing</h1>
@@ -94,6 +108,9 @@ document.getElementById("time").innerText =
 </div>
 
 <script>
+document.getElementById("time").innerText =
+  "Last Updated: " + new Date().toLocaleString();
+
 function calculateBill() {
     let rent = parseInt(document.getElementById("rent").value) || 0;
     let food = parseInt(document.getElementById("food").value) || 0;
