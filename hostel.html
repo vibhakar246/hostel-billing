@@ -20,6 +20,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in;
         }
 
         .version {
@@ -52,6 +53,13 @@
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
         }
 
         button {
@@ -62,10 +70,12 @@
             border: none;
             cursor: pointer;
             border-radius: 4px;
+            transition: 0.3s;
         }
 
         button:hover {
             background: #0056b3;
+            transform: scale(1.03);
         }
 
         #result {
@@ -73,6 +83,17 @@
             margin-top: 15px;
             color: green;
             font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #result.show {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
@@ -112,14 +133,23 @@ document.getElementById("time").innerText =
   "Last Updated: " + new Date().toLocaleString();
 
 function calculateBill() {
+    let name = document.getElementById("name").value;
+    let room = document.getElementById("room").value;
+
     let rent = parseInt(document.getElementById("rent").value) || 0;
     let food = parseInt(document.getElementById("food").value) || 0;
     let electric = parseInt(document.getElementById("electric").value) || 0;
 
+    if(name === "" || room === "") {
+        alert("Please enter Student Name and Room Number");
+        return;
+    }
+
     let total = rent + food + electric;
 
-    document.getElementById("result").innerText =
-        "Total Bill: ₹ " + total;
+    let result = document.getElementById("result");
+    result.innerText = "Total Bill: ₹ " + total;
+    result.classList.add("show");
 }
 </script>
 
