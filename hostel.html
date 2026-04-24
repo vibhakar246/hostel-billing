@@ -6,114 +6,243 @@
     <title>Maa Bhawani Hostel Billing</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #4a69bd);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .version {
             text-align: center;
             color: white;
             font-weight: bold;
-            background: #28a745;
-            padding: 10px;
+            background: linear-gradient(90deg, #11998e, #38ef7d);
+            padding: 12px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         #time {
             text-align: center;
-            color: white;
-            margin: 10px 0;
+            color: rgba(255,255,255,0.9);
+            margin: 15px 0;
+            font-size: 14px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .container {
-            width: 340px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 380px;
+            max-width: 95%;
+            margin: 20px auto 40px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255,255,255,0.1);
             animation: fadeIn 1s ease-in;
         }
 
         h1 {
             text-align: center;
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '🏠';
+            display: block;
+            font-size: 28px;
+            margin-top: 5px;
+        }
+
+        .tagline {
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+            margin-bottom: 20px;
+            font-style: italic;
         }
 
         .section-title {
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            color: #444;
+            border-bottom: 3px solid #11998e;
+            padding-bottom: 8px;
+            color: #1e3c72;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title.student::before {
+            content: '👤';
+        }
+
+        .section-title.charges::before {
+            content: '💰';
         }
 
         label {
-            font-size: 14px;
+            font-size: 13px;
+            color: #495057;
+            font-weight: 500;
+            display: block;
+            margin-top: 12px;
         }
 
         input {
             width: 100%;
-            margin: 5px 0 10px;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            transition: 0.3s;
+            margin: 6px 0 5px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            background: #f8f9fa;
         }
 
         input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0,123,255,0.4);
+            border-color: #11998e;
+            box-shadow: 0 0 0 4px rgba(17,153,142,0.15);
             outline: none;
+            background: white;
+        }
+
+        input:hover {
+            border-color: #adb5bd;
+        }
+
+        input::placeholder {
+            color: #adb5bd;
         }
 
         button {
             width: 100%;
-            padding: 10px;
-            background: #007bff;
+            padding: 14px;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(17,153,142,0.4);
         }
 
         button:hover {
-            background: #0056b3;
-            transform: scale(1.03);
+            background: linear-gradient(135deg, #0d7d6c, #2ecc71);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17,153,142,0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         #result {
-            margin-top: 15px;
+            margin-top: 20px;
             text-align: center;
-            font-weight: bold;
-            color: green;
+            font-weight: 600;
+            color: #155724;
             opacity: 0;
-            transition: 0.5s;
+            transition: all 0.5s ease;
             white-space: pre-line;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #b1dfbb;
+            line-height: 1.8;
+            font-size: 14px;
         }
 
         #result.show {
             opacity: 1;
+            animation: slideUp 0.5s ease;
         }
 
         @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
+            from {opacity: 0; transform: translateY(30px);}
             to {opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes slideUp {
+            from {opacity: 0; transform: translateY(15px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Decorative elements */
+        .decoration {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            pointer-events: none;
+        }
+
+        .decoration.one {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .decoration.two {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        /* Input icons styling */
+        .input-group {
+            position: relative;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            padding: 20px;
         }
     </style>
 </head>
 
 <body>
 
-<div class="version">Version 5 🚀</div>
+<div class="decoration one"></div>
+<div class="decoration two"></div>
+
+<div class="version">✨ Version 5 ✨</div>
 <h3 id="time"></h3>
 
 <div class="container">
     <h1>Maa Bhawani Hostel</h1>
+    <p class="tagline">Your Home Away From Home</p>
 
-    <div class="section-title">Student Details</div>
+    <div class="section-title student">Student Details</div>
 
     <label>Student Name:</label>
     <input type="text" id="name" placeholder="Enter name">
@@ -130,7 +259,7 @@
     <label>Room Number:</label>
     <input type="text" id="room" placeholder="Enter room number">
 
-    <div class="section-title">Charges</div>
+    <div class="section-title charges">Charges</div>
 
     <label>Room Rent (₹):</label>
     <input type="number" id="rent">
@@ -141,10 +270,12 @@
     <label>Electricity (₹):</label>
     <input type="number" id="electric">
 
-    <button onclick="calculateBill()">Calculate Bill</button>
+    <button onclick="calculateBill()">📋 Calculate Bill</button>
 
     <div id="result"></div>
 </div>
+
+<div class="footer">Made with ❤️ for Maa Bhawani Hostel</div>
 
 <script>
 document.getElementById("time").innerText =
@@ -175,12 +306,12 @@ function calculateBill() {
 
     let result = document.getElementById("result");
     result.innerText =
-        "Total Bill: ₹ " + total +
-        "\n\nName: " + name +
-        "\nID: " + id +
-        "\nFather: " + father +
-        "\nMobile: " + mobile +
-        "\nRoom: " + room;
+        "💵 Total Bill: ₹ " + total +
+        "\n\n👤 Name: " + name +
+        "\n🆔 ID: " + id +
+        "\n👨 Father: " + father +
+        "\n📱 Mobile: " + mobile +
+        "\n🚪 Room: " + room;
 
     result.classList.add("show");
 }
