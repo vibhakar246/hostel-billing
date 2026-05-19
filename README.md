@@ -1,4 +1,4 @@
-# 🏨 Hostel Billing DevOps Monitoring Project
+# Hostel Billing DevOps Monitoring Project
 
 A complete DevOps implementation for the **Hostel Billing Application** with:
 
@@ -15,7 +15,7 @@ A complete DevOps implementation for the **Hostel Billing Application** with:
 
 ---
 
-# 📌 Complete Workflow Architecture
+# Complete Workflow Architecture
 
 ```mermaid
 flowchart TD
@@ -44,7 +44,7 @@ F --> L
 
 ---
 
-# 🏗️ Project Structure
+# Project Structure
 
 ```bash
 hostel-billing/
@@ -62,7 +62,7 @@ hostel-billing/
 
 ---
 
-# ⚙️ Technologies Used
+#  Technologies Used
 
 | Tool | Purpose |
 |------|----------|
@@ -80,7 +80,7 @@ hostel-billing/
 
 ---
 
-# ☁️ AWS Services Used
+# AWS Services Used
 
 ## EC2
 Used for:
@@ -132,7 +132,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ---
 
-# 🔄 Docker Compose
+# Docker Compose
 
 ```yaml
 services:
@@ -206,7 +206,7 @@ Used for:
 
 ---
 
-# 📜 Logging Setup
+#  Logging Setup
 
 ## Fluent Bit
 
@@ -247,7 +247,7 @@ Visualizes:
 
 ---
 
-# 📈 Monitored Metrics
+# Monitored Metrics
 
 ## EC2 Metrics
 
@@ -266,7 +266,7 @@ Visualizes:
 
 ---
 
-# 📜 Application Logs
+#  Application Logs
 
 Logs available in Kibana:
 
@@ -279,7 +279,7 @@ Nginx access logs
 
 ---
 
-# 🔥 Features
+# Features
 
 ✅ Dockerized Application  
 ✅ CI/CD Pipeline  
@@ -294,7 +294,7 @@ Nginx access logs
 
 ---
 
-# 🧪 Commands Used
+# Commands Used
 
 ## Build Docker Image
 
@@ -328,7 +328,7 @@ docker stats
 
 ---
 
-# 📌 DevOps Workflow
+#  DevOps Workflow
 
 ```mermaid
 sequenceDiagram
