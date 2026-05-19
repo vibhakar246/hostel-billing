@@ -4,5 +4,9 @@ services:
   hostel-app:
     build: .
     container_name: hostel-app
+labels:
+  app: hostel-billing
+  env: production
+    
     ports:
       - "8080:80"
