@@ -1,6 +1,6 @@
 # Hostel Billing DevOps Monitoring Project
 
-A complete DevOps implementation for the **Hostel Billing Application** with:
+complete DevOps implementation for the **Hostel Billing Application** with:
 
 - Docker Containerization
 - AWS EC2 Deployment
